@@ -8,8 +8,20 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    redirectTo: 'home'
+  },
+  {
+    path: 'project',
+    redirectTo: 'project'
+  },
+  {
     path: 'dashboard',
-    redirectTo: 'dashboard'
+    loadChildren: './dashboard/dashboard.module#DashboardModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ];
 
