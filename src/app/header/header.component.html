@@ -1,7 +1,12 @@
 <mdl-layout mdl-layout-fixed-header>
   <mdl-layout-header>
     <mdl-layout-header-row>
-      <mdl-layout-title>API Hanger</mdl-layout-title>
+      <mdl-layout-title (click)="home()">API Hanger</mdl-layout-title>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" (click)="project()">
+          项目
+        </a>
+      </nav>
       <mdl-layout-spacer></mdl-layout-spacer>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" *ngIf="auth?.user?.username === null" (click)="login()">

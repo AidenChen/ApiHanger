@@ -16,3 +16,13 @@ $dividerColor: #BDBDBD;
 //$color-accent: $accentColor;
 //$color-primary-contrast: $primaryColorText;
 //$color-accent-contrast: $primaryColorText;
+
+$fontSizeSmall: 12px;
+$fontSizeNormal: 14px;
+$fontSizeBig: 16px;
+$fontSizeBigger: 18px;
+$fontSizeBiggest: 36px;
+
+body, html {
+  font-family: Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", SimSun, "宋体", STXihei, "华文细黑", Heiti, "黑体", sans-serif;
+}
