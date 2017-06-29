@@ -13,4 +13,5 @@ import { ProjectComponent } from './project.component';
     ProjectComponent
   ]
 })
-export class ProjectModule { }
+export class ProjectModule {
+}

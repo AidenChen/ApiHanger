@@ -6,7 +6,6 @@ import { MdlModule } from '@angular-mdl/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { ProjectModule } from './project/project.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 
 import { AppComponent } from './app.component';
 
@@ -20,10 +19,10 @@ import { AppComponent } from './app.component';
     MdlModule,
     AppRoutingModule,
     HomeModule,
-    ProjectModule,
-    DashboardModule
+    ProjectModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
