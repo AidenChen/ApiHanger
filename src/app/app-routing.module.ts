@@ -12,6 +12,10 @@ const routes: Routes = [
     redirectTo: 'home'
   },
   {
+    path: 'login',
+    redirectTo: 'login'
+  },
+  {
     path: 'project',
     redirectTo: 'project'
   },

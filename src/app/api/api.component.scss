@@ -1,0 +1,11 @@
+.api {
+  display: flex;
+
+  .api-list-wrapper {
+    flex: 0 0 40%;
+  }
+
+  .api-detail-wrapper {
+    flex: 1;
+  }
+}

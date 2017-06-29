@@ -3,6 +3,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ApiRoutingModule } from './api-routing.module';
 import { ApiComponent } from './api.component';
+import { ApiListComponent } from './api-list/api-list.component';
+import { ApiDetailComponent } from './api-detail/api-detail.component';
 
 @NgModule({
   imports: [
@@ -10,7 +12,9 @@ import { ApiComponent } from './api.component';
     ApiRoutingModule
   ],
   declarations: [
-    ApiComponent
+    ApiComponent,
+    ApiListComponent,
+    ApiDetailComponent
   ]
 })
 export class ApiModule {
