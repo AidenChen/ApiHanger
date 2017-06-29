@@ -19,16 +19,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(formValue) {
+  onSubmit() {
     this.service
-      .loginWithCredentials(formValue.login.username, formValue.login.password)
-      .then(auth => {
-        const redirectUrl = (auth.redirectUrl === null) ? '/' : auth.redirectUrl;
+      .loginWithCredentials(this.username, this.password)
+      .subscribe(auth => {
+        this.auth = Object.assign({}, auth);
         if (!auth.hasError) {
-          this.router.navigate([redirectUrl]);
-          localStorage.removeItem('redirectUrl');
-        } else {
-          this.auth = Object.assign({}, auth);
+          this.router.navigate(['project']);
         }
       });
   }

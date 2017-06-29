@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '../../models/auth-model';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  auth: Auth;
+
+  constructor(@Inject('auth') private service, private router: Router) { }
 
   ngOnInit() {
+    this.service
+      .getAuth()
+      .subscribe(auth => this.auth = Object.assign({}, auth));
   }
 
   home() {
@@ -19,6 +25,16 @@ export class HeaderComponent implements OnInit {
 
   project() {
     this.router.navigate(['project']);
+  }
+
+  login() {
+    this.router.navigate(['login']);
+  }
+
+  logout() {
+    this.service.unAuth();
+    this.auth = null;
+    this.router.navigate(['login']);
   }
 
 }

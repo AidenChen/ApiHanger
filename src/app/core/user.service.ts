@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 import { User } from '../models/user-model';
 
 @Injectable()
@@ -12,20 +13,19 @@ export class UserService {
   constructor(private http: Http) {
   }
 
-  findUser(username: string): Promise<User> {
-    const url = `${this.api_url}/?username=${username}`;
+  getUser(userId: number): Observable<User> {
+    const url = `${this.api_url}/${userId}`;
     return this.http.get(url)
-      .toPromise()
-      .then(res => {
-        const users = res.json() as User[];
-        return (users.length > 0) ? users[0] : null;
-      })
-      .catch(this.handleError);
+      .map(res => res.json() as User);
   }
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+  findUser(username: string): Observable<User> {
+    const url = `${this.api_url}/?username=${username}`;
+    return this.http.get(url)
+      .map(res => {
+        const users = res.json() as User[];
+        return (users.length > 0) ? users[0] : null;
+      });
   }
 
 }
