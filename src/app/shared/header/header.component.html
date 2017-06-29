@@ -1,4 +1,4 @@
-<mdl-layout mdl-layout-fixed-header>
+<mdl-layout #mdlLayout1="mdlLayout" mdl-layout-fixed-header>
   <mdl-layout-header>
     <mdl-layout-header-row>
       <mdl-layout-title (click)="home()">API Hanger</mdl-layout-title>
@@ -18,8 +18,8 @@
   </mdl-layout-header>
   <mdl-layout-drawer *ngIf="auth?.user?.username !== null">
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link">项目概览</a>
-      <a class="mdl-navigation__link">接口管理</a>
+      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();overview(1)">项目概览</a>
+      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();api(1)">接口管理</a>
     </nav>
   </mdl-layout-drawer>
   <mdl-layout-content>

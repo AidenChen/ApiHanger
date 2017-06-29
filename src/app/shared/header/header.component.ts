@@ -27,6 +27,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['project']);
   }
 
+  overview(id) {
+    this.router.navigate([`dashboard/overview/${id}`]);
+  }
+
+  api(id) {
+    this.router.navigate([`dashboard/api/${id}`]);
+  }
+
   login() {
     this.router.navigate(['login']);
   }
