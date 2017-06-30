@@ -11,15 +11,15 @@
         <a class="mdl-navigation__link" (click)="login()">注册</a>
       </nav>
       <nav class="mdl-navigation" *ngIf="auth?.user?.username !== null">
-        <a class="mdl-navigation__link" (click)="project()">{{auth.user.username}}</a>
+        <a class="mdl-navigation__link">{{auth.user.username}}</a>
         <a class="mdl-navigation__link" (click)="logout()">退出</a>
       </nav>
     </mdl-layout-header-row>
   </mdl-layout-header>
   <mdl-layout-drawer *ngIf="auth?.user?.username !== null">
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();overview(1)">项目概览</a>
-      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();api(1)">接口管理</a>
+      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();overview()">项目概览</a>
+      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();api()">接口管理</a>
     </nav>
   </mdl-layout-drawer>
   <mdl-layout-content>

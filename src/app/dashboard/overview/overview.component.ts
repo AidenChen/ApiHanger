@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -8,14 +7,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-              private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      const id = params['id'];
-      console.log(id);
-    });
   }
 
 }

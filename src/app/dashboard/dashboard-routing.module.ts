@@ -9,11 +9,11 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: 'overview/:id',
+        path: 'overview',
         component: OverviewComponent
       },
       {
-        path: 'api/:id',
+        path: 'api',
         loadChildren: '../api/api.module#ApiModule'
       }
     ]
