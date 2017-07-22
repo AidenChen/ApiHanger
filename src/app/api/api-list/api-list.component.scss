@@ -1,0 +1,52 @@
+@import "../../../styles";
+
+.api-list {
+  display: flex;
+  box-sizing: border-box;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 40%;
+  height: 100%;
+}
+
+.category {
+  flex: 0 0 40%;
+  border-right: 1px solid $dividerColor;
+}
+
+.category__title {
+  box-sizing: border-box;
+  height: 56px;
+  padding: 19px 0;
+  line-height: 18px;
+  text-indent: 10px;
+  font-size: $fontSizeBigger;
+  border-bottom: 1px solid $dividerColor;
+}
+
+.category__list {
+  height: 100%;
+}
+
+.category__unit {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: $fontSizeNormal;
+}
+
+.item {
+  flex: 1;
+  border-right: 1px solid $dividerColor;
+}
+
+.item__title {
+  box-sizing: border-box;
+  height: 56px;
+  padding: 19px 0;
+  line-height: 18px;
+  text-indent: 10px;
+  font-size: $fontSizeBigger;
+  border-bottom: 1px solid $dividerColor;
+}

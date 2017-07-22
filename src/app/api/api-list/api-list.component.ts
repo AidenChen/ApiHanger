@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiListComponent implements OnInit {
 
+  category = [
+      '测试分类1',
+      '测试分类2',
+      '测试分类3',
+      '测试分类4',
+  ];
+
   constructor() { }
 
   ngOnInit() {
