@@ -1,13 +1,4 @@
-<app-header></app-header>
-<section class="main home mdui-drawer-body-left mdui-appbar-with-toolbar">
-  <div class="mdui-drawer mdui-drawer-close" id="left-drawer">
-    <ul class="mdui-list">
-      <!--<a (click)="overview()">项目概览</a>-->
-      <!--<a (click)="api()">接口管理</a>-->
-      <li class="mdui-list-item mdui-ripple">项目概览</li>
-      <li class="mdui-list-item mdui-ripple">接口管理</li>
-    </ul>
-  </div>
+<section class="main home">
   <div class="hint">
     <span class="hint__text">API文档管理与测试系统</span>
     <div class="hint__btn-wrapper" *ngIf="auth?.user?.username === null">

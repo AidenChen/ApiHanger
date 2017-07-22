@@ -1,13 +1,4 @@
-<app-header></app-header>
-<section class="main login">
-  <!--<div class="mdui-drawer mdui-drawer-close" id="left-drawer">-->
-    <!--<ul class="mdui-list">-->
-      <!--&lt;!&ndash;<a (click)="overview()">项目概览</a>&ndash;&gt;-->
-      <!--&lt;!&ndash;<a (click)="api()">接口管理</a>&ndash;&gt;-->
-      <!--<li class="mdui-list-item mdui-ripple">项目概览</li>-->
-      <!--<li class="mdui-list-item mdui-ripple">接口管理</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+<section class="main login" style="padding-top: 64px;">
   <div>
     <form (ngSubmit)="onSubmit()">
       <input type="text" name="username" [(ngModel)]="username" #usernameRef="ngModel">
