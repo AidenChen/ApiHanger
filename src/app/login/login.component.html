@@ -1,36 +1,48 @@
-<app-header>
-  <section class="main login">
-    <div>
-      <form (ngSubmit)="onSubmit()">
-        <mdl-textfield
-          type="text"
-          label="Username..."
-          name="username"
-          floating-label
-          required
-          [(ngModel)]="username"
-          #usernameRef="ngModel"
-        >
-        </mdl-textfield>
-        <div *ngIf="auth?.hasError" >
-          {{auth?.errMsg}}
-        </div>
-        <mdl-textfield
-          type="password"
-          label="Password..."
-          name="password"
-          floating-label
-          required
-          [(ngModel)]="password"
-          #passwordRef="ngModel">
-        </mdl-textfield>
-        <button
-          mdl-button mdl-button-type="raised"
-          mdl-colored="primary"
-          mdl-ripple type="submit">
-          Login
-        </button>
-      </form>
-    </div>
-  </section>
-</app-header>
+<app-header></app-header>
+<section class="main login">
+  <!--<div class="mdui-drawer mdui-drawer-close" id="left-drawer">-->
+    <!--<ul class="mdui-list">-->
+      <!--&lt;!&ndash;<a (click)="overview()">项目概览</a>&ndash;&gt;-->
+      <!--&lt;!&ndash;<a (click)="api()">接口管理</a>&ndash;&gt;-->
+      <!--<li class="mdui-list-item mdui-ripple">项目概览</li>-->
+      <!--<li class="mdui-list-item mdui-ripple">接口管理</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <div>
+    <form (ngSubmit)="onSubmit()">
+      <input type="text" name="username" [(ngModel)]="username" #usernameRef="ngModel">
+      <input type="password" name="password" [(ngModel)]="password" #passwordRef="ngModel">
+      <button class="mdui-btn" type="submit">Login</button>
+    </form>
+    <!--<form (ngSubmit)="onSubmit()">-->
+      <!--<mdl-textfield-->
+        <!--type="text"-->
+        <!--label="Username..."-->
+        <!--name="username"-->
+        <!--floating-label-->
+        <!--required-->
+        <!--[(ngModel)]="username"-->
+        <!--#usernameRef="ngModel"-->
+      <!--&gt;-->
+      <!--</mdl-textfield>-->
+      <!--<div *ngIf="auth?.hasError" >-->
+        <!--{{auth?.errMsg}}-->
+      <!--</div>-->
+      <!--<mdl-textfield-->
+        <!--type="password"-->
+        <!--label="Password..."-->
+        <!--name="password"-->
+        <!--floating-label-->
+        <!--required-->
+        <!--[(ngModel)]="password"-->
+        <!--#passwordRef="ngModel">-->
+      <!--</mdl-textfield>-->
+      <!--<button-->
+        <!--mdl-button mdl-button-type="raised"-->
+        <!--mdl-colored="primary"-->
+        <!--mdl-ripple type="submit">-->
+        <!--Login-->
+      <!--</button>-->
+    <!--</form>-->
+  </div>
+</section>

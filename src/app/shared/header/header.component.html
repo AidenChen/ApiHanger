@@ -1,28 +1,19 @@
-<mdl-layout #mdlLayout1="mdlLayout" mdl-layout-fixed-header>
-  <mdl-layout-header>
-    <mdl-layout-header-row>
-      <mdl-layout-title (click)="home()">API Hanger</mdl-layout-title>
-      <nav class="mdl-navigation" *ngIf="auth?.user?.username !== null">
-        <a class="mdl-navigation__link" (click)="project()">项目</a>
-      </nav>
-      <mdl-layout-spacer></mdl-layout-spacer>
-      <nav class="mdl-navigation" *ngIf="auth?.user?.username === null">
-        <a class="mdl-navigation__link" (click)="login()">登录</a>
-        <a class="mdl-navigation__link" (click)="login()">注册</a>
-      </nav>
-      <nav class="mdl-navigation" *ngIf="auth?.user?.username !== null">
-        <a class="mdl-navigation__link">{{auth.user.username}}</a>
-        <a class="mdl-navigation__link" (click)="logout()">退出</a>
-      </nav>
-    </mdl-layout-header-row>
-  </mdl-layout-header>
-  <mdl-layout-drawer *ngIf="auth?.user?.username !== null">
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();overview()">项目概览</a>
-      <a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer();api()">接口管理</a>
+<div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}" *ngIf="auth?.user?.username !== null || 1"><i class="mdui-icon material-icons">menu</i></a>
+    <!--<a (click)="home()" class="mdui-typo-headline">API Hanger</a>-->
+    <a (click)="home()" class="mdui-typo-title">API Hanger</a>
+    <nav *ngIf="auth?.user?.username !== null">
+      <a class="mdui-btn" (click)="project()">项目</a>
     </nav>
-  </mdl-layout-drawer>
-  <mdl-layout-content>
-    <ng-content></ng-content>
-  </mdl-layout-content>
-</mdl-layout>
+    <div class="mdui-toolbar-spacer"></div>
+    <nav *ngIf="auth?.user?.username === null">
+      <a class="mdui-btn" (click)="login()">登录</a>
+      <a class="mdui-btn" (click)="login()">注册</a>
+    </nav>
+    <nav *ngIf="auth?.user?.username !== null">
+      <a class="mdui-btn">{{auth.user.username}}</a>
+      <a class="mdui-btn" (click)="logout()">退出</a>
+    </nav>
+  </div>
+</div>

@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular-mdl/core/scss/material-design-lite';
-
 $primaryColorDark: #00796B;
 $primaryColor: #009688;
 $primaryColorLight: #B2DFDB;
@@ -11,12 +9,6 @@ $primaryTextColor: #212121;
 $secondaryTextColor: #757575;
 $dividerColor: #BDBDBD;
 
-//$color-primary: $primaryColor;
-//$color-primary-dark: $primaryColorDark;
-//$color-accent: $accentColor;
-//$color-primary-contrast: $primaryColorText;
-//$color-accent-contrast: $primaryColorText;
-
 $fontSizeSmall: 12px;
 $fontSizeNormal: 14px;
 $fontSizeBig: 16px;
@@ -25,4 +17,8 @@ $fontSizeBiggest: 36px;
 
 body, html {
   font-family: Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", SimSun, "宋体", STXihei, "华文细黑", Heiti, "黑体", sans-serif;
+}
+
+.main {
+  padding-top: 64px;
 }
