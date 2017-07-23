@@ -19,18 +19,6 @@ export class HeaderComponent implements OnInit {
       .subscribe(auth => this.auth = Object.assign({}, auth));
   }
 
-  home() {
-    this.router.navigate(['home']);
-  }
-
-  project() {
-    this.router.navigate(['project']);
-  }
-
-  login() {
-    this.router.navigate(['login']);
-  }
-
   logout() {
     this.service.unAuth();
     this.auth = null;
