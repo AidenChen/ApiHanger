@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Auth } from '../../models/auth-model';
+import { Router } from '@angular/router';
+import { Auth } from '../models/auth-model';
 
 @Component({
   selector: 'app-header',
@@ -9,18 +9,14 @@ import { Auth } from '../../models/auth-model';
 })
 export class HeaderComponent implements OnInit {
 
-  id: number;
   auth: Auth;
 
-  constructor(@Inject('auth') private service, private route: ActivatedRoute, private router: Router) { }
+  constructor(@Inject('auth') private service, private router: Router) { }
 
   ngOnInit() {
     this.service
       .getAuth()
       .subscribe(auth => this.auth = Object.assign({}, auth));
-    this.route.queryParams.forEach((params: Params) => {
-      this.id = params['id'];
-    });
   }
 
   home() {
@@ -29,14 +25,6 @@ export class HeaderComponent implements OnInit {
 
   project() {
     this.router.navigate(['project']);
-  }
-
-  overview() {
-    this.router.navigate(['dashboard/overview'], {queryParams: {id: this.id}});
-  }
-
-  api() {
-    this.router.navigate(['dashboard/api'], {queryParams: {id: this.id}});
   }
 
   login() {

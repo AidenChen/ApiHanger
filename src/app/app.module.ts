@@ -8,12 +8,14 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { ProjectModule } from './project/project.module';
 
-import { HeaderComponent } from './shared/header/header.component';
+import { HeaderComponent } from './header/header.component';
+import { DrawerComponent } from './drawer/drawer.component';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    DrawerComponent,
     AppComponent
   ],
   imports: [
