@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class ApiHangerPage {
+export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
