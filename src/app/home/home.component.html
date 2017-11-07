@@ -1,10 +1,12 @@
 <section class="main home">
   <div class="hint">
-    <span class="hint__text">API文档管理与测试系统</span>
+    <!--<span class="hint__text">API文档管理与测试系统</span>-->
+    <span class="hint__text">test</span>
     <div class="hint__btn-wrapper" *ngIf="auth?.user?.username === null">
       <div class="hint__btn" routerLink="/login">立即登录</div>
       <div class="hint__btn" routerLink="/login">注册账号</div>
     </div>
+    <button mat-raised-button color="primary">Click me!</button>
     <div class="hint__btn-wrapper" *ngIf="auth?.user?.username !== null">
       <div class="hint__btn" routerLink="/project">项目列表</div>
     </div>

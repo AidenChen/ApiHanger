@@ -1,14 +1,20 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
+  imports: [
+    BrowserAnimationsModule,
+  ],
+  exports: [],
   providers: [
     { provide: 'auth', useClass: AuthService },
     { provide: 'user', useClass: UserService },
     AuthGuardService
-  ]
+  ],
+  declarations: []
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
