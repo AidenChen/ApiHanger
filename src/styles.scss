@@ -4,3 +4,9 @@
 body, html {
   font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', STXihei, '华文细黑', Heiti, '黑体', sans-serif;
 }
+
+html, body, app-root, mat-sidenav-container, .app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}

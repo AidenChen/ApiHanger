@@ -1,7 +1,13 @@
-<div class="mdui-theme-primary-teal mdui-theme-accent-cyan">
-  <app-header></app-header>
-  <div class="mdui-drawer-body-left mdui-appbar-with-toolbar">
+<mat-sidenav-container>
+  <mat-sidenav #drawer mode="over">
     <app-drawer></app-drawer>
-    <router-outlet></router-outlet>
+  </mat-sidenav>
+  <div class="app">
+    <header>
+      <app-header (toggle)="drawer.toggle()"></app-header>
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   </div>
-</div>
+</mat-sidenav-container>

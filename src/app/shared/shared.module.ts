@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCheckboxModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -9,6 +16,10 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
   ],
@@ -16,6 +27,10 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
     MatButtonModule,
     MatCheckboxModule,
   ]
