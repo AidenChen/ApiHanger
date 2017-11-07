@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 
 import { ReplaySubject, Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
+import { UserService } from './user.service';
 import { Auth } from '../models/auth-model';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class AuthService {
   auth: Auth = {hasError: true, redirectUrl: '', errMsg: 'not logged in'};
   subject: ReplaySubject<Auth> = new ReplaySubject<Auth>(1);
 
-  constructor(private http: Http, @Inject('user') private userService) {
+  constructor(private http: Http, private userService: UserService) {
   }
 
   getAuth(): Observable<Auth> {

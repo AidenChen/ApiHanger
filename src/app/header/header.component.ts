@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services';
 import { Auth } from '../models/auth-model';
 
 @Component({
@@ -11,16 +12,16 @@ export class HeaderComponent implements OnInit {
 
   auth: Auth;
 
-  constructor(@Inject('auth') private service, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.service
+    this.authService
       .getAuth()
       .subscribe(auth => this.auth = Object.assign({}, auth));
   }
 
   logout() {
-    this.service.unAuth();
+    this.authService.unAuth();
     this.auth = null;
     this.router.navigate(['login']);
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from '../services';
 import { Auth } from '../models/auth-model';
 
 @Component({
@@ -13,14 +14,14 @@ export class LoginComponent implements OnInit {
   password = '';
   auth: Auth;
 
-  constructor(@Inject('auth') private service, private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.service
+    this.authService
       .loginWithCredentials(this.username, this.password)
       .subscribe(auth => {
         this.auth = Object.assign({}, auth);

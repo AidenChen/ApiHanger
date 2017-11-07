@@ -1,19 +1,16 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthService } from './auth.service';
-import { UserService } from './user.service';
-import { AuthGuardService } from './auth-guard.service';
+import { ServicesModule } from '../services';
+
+import 'rxjs/add/operator/map';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    ServicesModule.forRoot(),
   ],
   exports: [],
-  providers: [
-    { provide: 'auth', useClass: AuthService },
-    { provide: 'user', useClass: UserService },
-    AuthGuardService
-  ],
+  providers: [],
   declarations: []
 })
 export class CoreModule {
