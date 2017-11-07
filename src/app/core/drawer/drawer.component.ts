@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -9,21 +9,28 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class DrawerComponent implements OnInit {
 
   id: number;
+  @Output() navClicked = new EventEmitter<void>();
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor (private route: ActivatedRoute, private router: Router) {
+  }
 
-  ngOnInit() {
+  ngOnInit () {
     this.route.queryParams.forEach((params: Params) => {
       this.id = params['id'];
     });
   }
 
-  overview() {
-    this.router.navigate(['dashboard/overview'], {queryParams: {id: this.id}});
+  handleClicked (e: Event) {
+    e.preventDefault();
+    this.navClicked.emit();
   }
 
-  api() {
-    this.router.navigate(['dashboard/api'], {queryParams: {id: this.id}});
+  overview () {
+    this.router.navigate(['dashboard/overview'], { queryParams: { id: this.id } });
+  }
+
+  api () {
+    this.router.navigate(['dashboard/api'], { queryParams: { id: this.id } });
   }
 
 }

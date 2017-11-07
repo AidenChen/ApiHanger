@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav #drawer mode="over">
-    <app-drawer></app-drawer>
+    <app-drawer (navClicked)="drawer.close()"></app-drawer>
   </mat-sidenav>
   <div class="app">
     <header>

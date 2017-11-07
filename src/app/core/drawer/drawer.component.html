@@ -1,10 +1,10 @@
 <div>
   <mat-nav-list>
-    <mat-list-item>
-      <span md-line [routerLink]="['dashboard/overview']" [queryParams]="{'id': id}">项目概览</span>
+    <mat-list-item [routerLink]="['dashboard/overview']" [queryParams]="{'id': id}" (click)="handleClicked($event)">
+      <span md-line>项目概览</span>
     </mat-list-item>
-    <mat-list-item>
-      <span md-line [routerLink]="['dashboard/api']" [queryParams]="{'id': id}">接口管理</span>
+    <mat-list-item [routerLink]="['dashboard/api']" [queryParams]="{'id': id}" (click)="handleClicked($event)">
+      <span md-line>接口管理</span>
     </mat-list-item>
   </mat-nav-list>
 </div>
