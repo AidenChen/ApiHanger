@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { ServicesModule } from '../services';
 import { config } from '../app.config';
+import { HeaderComponent } from './header/header.component';
+import { DrawerComponent } from './drawer/drawer.component';
 
 import 'rxjs/add/operator/map';
 
@@ -14,14 +16,20 @@ import 'rxjs/add/operator/map';
     SharedModule,
     ServicesModule.forRoot(),
   ],
-  exports: [],
+  exports: [
+    HeaderComponent,
+    DrawerComponent,
+  ],
   providers: [
     {
       provide: 'CONFIG',
       useValue: config
     },
   ],
-  declarations: []
+  declarations: [
+    HeaderComponent,
+    DrawerComponent,
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

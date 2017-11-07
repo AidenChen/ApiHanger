@@ -8,14 +8,10 @@ import { LoginModule } from './login/login.module';
 import { ProjectModule } from './project/project.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { DrawerComponent } from './drawer/drawer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    DrawerComponent,
   ],
   imports: [
     BrowserModule,
