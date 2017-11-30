@@ -11,9 +11,10 @@ export class ProjectComponent implements OnInit {
     id: 1
   };
 
-  constructor() { }
+  constructor () {
+  }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 
 }

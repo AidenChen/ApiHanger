@@ -11,9 +11,10 @@ export class HomeComponent implements OnInit {
 
   auth: Auth;
 
-  constructor(private authService: AuthService) { }
+  constructor (private authService: AuthService) {
+  }
 
-  ngOnInit() {
+  ngOnInit () {
     this.authService
       .getAuth()
       .subscribe(auth => this.auth = Object.assign({}, auth));

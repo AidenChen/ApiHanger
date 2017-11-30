@@ -14,18 +14,18 @@ export class LoginComponent implements OnInit {
   password = '';
   auth: Auth;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor (private authService: AuthService, private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit () {
   }
 
-  onSubmit() {
+  onSubmit () {
     this.authService
       .loginWithCredentials(this.username, this.password)
       .subscribe(auth => {
         this.auth = Object.assign({}, auth);
-        if (!auth.hasError) {
+        if (! auth.hasError) {
           this.router.navigate(['project']);
         }
       });

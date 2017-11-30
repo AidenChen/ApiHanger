@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ReplaySubject, Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { UserService } from './user.service';
 import { Auth } from '../models';
 
 @Injectable()
 export class AuthService {
 
-  auth: Auth = {hasError: true, redirectUrl: '', errMsg: 'not logged in'};
+  auth: Auth = { hasError: true, redirectUrl: '', errMsg: 'not logged in' };
   subject: ReplaySubject<Auth> = new ReplaySubject<Auth>(1);
 
   constructor (private http: HttpClient,
                private userService: UserService) {
   }
 
-  getAuth(): Observable<Auth> {
+  getAuth (): Observable<Auth> {
     return this.subject.asObservable();
   }
 
-  unAuth(): void {
+  unAuth (): void {
     this.auth = Object.assign(
       {},
       this.auth,
-      {user: null, hasError: true, redirectUrl: '', errMsg: 'not logged in'});
+      { user: null, hasError: true, redirectUrl: '', errMsg: 'not logged in' });
     this.subject.next(this.auth);
   }
 
-  loginWithCredentials(username: string, password: string): Observable<Auth> {
+  loginWithCredentials (username: string, password: string): Observable<Auth> {
     return this.userService
       .findUser(username)
       .map(user => {
