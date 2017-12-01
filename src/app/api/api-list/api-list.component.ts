@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Category } from '../../models';
 
 @Component({
   selector: 'app-api-list',
@@ -7,12 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiListComponent implements OnInit {
 
-  category = [
-    '测试分类1',
-    '测试分类2',
-    '测试分类3',
-    '测试分类4',
-  ];
+  @Input() categories: Array<Category>;
 
   constructor () {
   }

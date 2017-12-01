@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../services';
+import { Category } from '../models';
 
 @Component({
   selector: 'app-api',
@@ -7,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiComponent implements OnInit {
 
-  constructor () {
+  categories: Array<Category>;
+
+  constructor (private categoryService: CategoryService) {
   }
 
   ngOnInit () {
+    this.categoryService
+      .index({
+        page_index: '1',
+        page_size: '5000'
+      })
+      .subscribe(categories => this.categories = categories);
   }
 
 }

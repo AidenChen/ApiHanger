@@ -1,6 +1,6 @@
 import { User } from './user.model';
 
-export class Auth {
+export interface Auth {
   user?: User;
   success: boolean;
   token: string;

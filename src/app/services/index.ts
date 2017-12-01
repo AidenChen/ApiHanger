@@ -3,12 +3,14 @@ import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LocalStorageService } from './local-storage.service';
+import { CategoryService } from './category.service';
 
 export {
   AuthService,
   UserService,
   AuthGuardService,
   LocalStorageService,
+  CategoryService,
 };
 
 @NgModule()
@@ -21,6 +23,7 @@ export class ServicesModule {
         UserService,
         AuthGuardService,
         LocalStorageService,
+        CategoryService,
       ]
     };
   }
