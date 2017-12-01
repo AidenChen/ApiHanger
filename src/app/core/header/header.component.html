@@ -1,17 +1,17 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="onClick()" *ngIf="auth?.user?.username !== null || 1">
+  <button mat-icon-button (click)="onClick()" *ngIf="auth?.success || 1">
     <mat-icon>menu</mat-icon>
   </button>
   <span [routerLink]="['/home']">API Hanger</span>
-  <span *ngIf="auth?.user?.username !== null">
+  <span *ngIf="auth?.success">
     <a mat-button [routerLink]="['/project']">项目</a>
   </span>
   <span class="spacer" style="flex: 1 1 auto;"></span>
-  <span *ngIf="auth?.user?.username === null">
+  <span *ngIf="! auth?.success">
     <a mat-button [routerLink]="['/login']">登录</a>
     <a mat-button>注册</a>
   </span>
-  <span *ngIf="auth?.user?.username !== null">
+  <span *ngIf="auth?.success">
     <a mat-button>{{auth.user.username}}</a>
     <a mat-button (click)="logout()">退出</a>
   </span>

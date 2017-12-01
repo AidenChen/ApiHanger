@@ -1,51 +1,64 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { UserService } from './user.service';
-import { Auth } from '../models';
+import { LocalStorageService } from './local-storage.service';
+import { User, Auth, Response } from '../models';
 
 @Injectable()
 export class AuthService {
 
-  auth: Auth = { hasError: true, redirectUrl: '', errMsg: 'not logged in' };
-  subject: ReplaySubject<Auth> = new ReplaySubject<Auth>(1);
+  private readonly module = 'v1/auth';
+  auth: Auth = this.localStorageService.get('auth', {
+    user: null,
+    success: false,
+    token: '',
+    redirect: ''
+  });
+  subject: BehaviorSubject<Auth> = new BehaviorSubject<Auth>(this.auth);
 
-  constructor (private http: HttpClient,
-               private userService: UserService) {
+  constructor (@Inject('CONFIG') private config,
+               private http: HttpClient,
+               private userService: UserService,
+               private localStorageService: LocalStorageService) {
+    this.subject.next(this.auth);
   }
 
   getAuth (): Observable<Auth> {
     return this.subject.asObservable();
   }
 
-  unAuth (): void {
+  getAuthorizationToken (): string {
+    return this.auth.token;
+  }
+
+  logout (): void {
     this.auth = Object.assign(
       {},
       this.auth,
-      { user: null, hasError: true, redirectUrl: '', errMsg: 'not logged in' });
+      { user: null, success: false, token: '', redirect: '' }
+    );
+    this.localStorageService.update('auth', this.auth);
     this.subject.next(this.auth);
   }
 
-  loginWithCredentials (username: string, password: string): Observable<Auth> {
-    return this.userService
-      .findUser(username)
-      .map(user => {
-        const auth = new Auth();
-        if (null === user) {
+  login (request: {username: string, password: string}): Observable<Auth> {
+    const uri = `${this.config.api}/users`;
+    return this.http.get<any>(uri, {params: request})
+      .map(response => {
+        const auth = Object.assign({}, this.auth);
+        if (! response.length) {
           auth.user = null;
-          auth.hasError = true;
-          auth.errMsg = 'user not found';
-        } else if (password === user.password) {
-          auth.user = user;
-          auth.hasError = false;
-          auth.errMsg = null;
+          auth.success = false;
+          auth.token = '';
         } else {
-          auth.user = null;
-          auth.hasError = true;
-          auth.errMsg = 'password not match';
+          auth.user = response[0];
+          auth.success = true;
+          auth.token = 'test';
         }
-        this.auth = Object.assign({}, auth);
+        this.auth = auth;
+        this.localStorageService.update('auth', this.auth);
         this.subject.next(this.auth);
         return this.auth;
       });

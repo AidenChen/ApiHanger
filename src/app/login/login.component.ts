@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../services';
-import { Auth } from '../models';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,6 @@ export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
-  auth: Auth;
 
   constructor (private authService: AuthService, private router: Router) {
   }
@@ -22,10 +20,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit () {
     this.authService
-      .loginWithCredentials(this.username, this.password)
+      .login({ username: this.username, password: this.password })
       .subscribe(auth => {
-        this.auth = Object.assign({}, auth);
-        if (! auth.hasError) {
+        if (auth.success) {
           this.router.navigate(['project']);
         }
       });

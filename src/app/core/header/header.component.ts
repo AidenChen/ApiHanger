@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
   auth: Auth;
   @Output() toggle = new EventEmitter<void>();
 
-  constructor (private authService: AuthService, private router: Router) {
+  constructor (private router: Router,
+               private authService: AuthService) {
   }
 
   ngOnInit () {
@@ -27,8 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout () {
-    this.authService.unAuth();
-    this.auth = null;
+    this.authService.logout();
     this.router.navigate(['login']);
   }
 
