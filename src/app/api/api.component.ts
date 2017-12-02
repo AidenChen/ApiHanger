@@ -15,6 +15,10 @@ export class ApiComponent implements OnInit {
   }
 
   ngOnInit () {
+    this.indexCategories();
+  }
+
+  indexCategories() {
     this.categoryService
       .index({
         page_index: '1',

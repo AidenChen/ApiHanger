@@ -28,5 +28,27 @@
       "id": 4,
       "name": "测试分类4"
     }
+  ],
+  "api": [
+    {
+      "id": 1,
+      "name": "测试接口1",
+      "category_id": 1
+    },
+    {
+      "id": 2,
+      "name": "测试接口2",
+      "category_id": 1
+    },
+    {
+      "id": 3,
+      "name": "测试接口3",
+      "category_id": 2
+    },
+    {
+      "id": 4,
+      "name": "测试接口4",
+      "category_id": 3
+    }
   ]
 }

@@ -4,6 +4,7 @@ import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LocalStorageService } from './local-storage.service';
 import { CategoryService } from './category.service';
+import { ApiService } from './api.service';
 
 export {
   AuthService,
@@ -11,6 +12,7 @@ export {
   AuthGuardService,
   LocalStorageService,
   CategoryService,
+  ApiService,
 };
 
 @NgModule()
@@ -24,6 +26,7 @@ export class ServicesModule {
         AuthGuardService,
         LocalStorageService,
         CategoryService,
+        ApiService,
       ]
     };
   }

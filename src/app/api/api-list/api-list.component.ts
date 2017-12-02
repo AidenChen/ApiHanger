@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Category } from '../../models';
+import { ApiService } from '../../services';
+import { Api, Category } from '../../models';
 
 @Component({
   selector: 'app-api-list',
@@ -9,11 +10,22 @@ import { Category } from '../../models';
 export class ApiListComponent implements OnInit {
 
   @Input() categories: Array<Category>;
+  items: Array<Api>;
 
-  constructor () {
+  constructor (private apiService: ApiService) {
   }
 
   ngOnInit () {
+  }
+
+  indexApi (id) {
+    this.apiService
+      .index({
+        page_index: '1',
+        page_size: '5000',
+        category_id: id
+      })
+      .subscribe(items => this.items = items);
   }
 
 }
