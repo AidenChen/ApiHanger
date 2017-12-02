@@ -1,5 +1,7 @@
 .api {
-  display: flex;
+  .api-inner {
+    display: flex;
+  }
 
   .api-list-wrapper {
     flex: 0 0 600px;

@@ -1,8 +1,11 @@
 <section class="api">
-  <div class="api-list-wrapper">
-    <app-api-list [categories]="categories"></app-api-list>
-  </div>
-  <div class="api-detail-wrapper">
-    <app-api-detail></app-api-detail>
+  <app-api-header></app-api-header>
+  <div class="api-inner">
+    <div class="api-list-wrapper">
+      <app-api-list [categories]="categories"></app-api-list>
+    </div>
+    <div class="api-detail-wrapper">
+      <app-api-detail></app-api-detail>
+    </div>
   </div>
 </section>
