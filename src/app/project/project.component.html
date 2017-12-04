@@ -1,6 +1,27 @@
 <section class="main project">
-  <div>项目列表</div>
-  <nav>
-    <a [routerLink]="['/dashboard/overview']" [queryParams]="queryParams">项目1</a>
-  </nav>
+  <div class="project-inner">
+    <mat-card class="card" *ngFor="let project of projects">
+      <mat-card-header (click)="onClick(project.id)">
+        <mat-card-title>{{project.name}}</mat-card-title>
+      </mat-card-header>
+      <!--<img mat-card-image [src]="project.cover" (click)="onClick(project.id)">-->
+      <mat-card-content (click)="onClick(project.id)">
+        <p>{{project.description}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="onClick(project.id)">
+          <mat-icon>note</mat-icon>
+          <span>编辑</span>
+        </button>
+        <button mat-button (click)="onClick(project.id)">
+          <mat-icon>group_add</mat-icon>
+          <span>邀请</span>
+        </button>
+        <button mat-button (click)="onClick(project.id)">
+          <mat-icon>delete</mat-icon>
+          <span>删除</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </section>

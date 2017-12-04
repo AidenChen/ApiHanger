@@ -1,0 +1,10 @@
+.project-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 0 0 360px;
+  margin: 10px;
+}

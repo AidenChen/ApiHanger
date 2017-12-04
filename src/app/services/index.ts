@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LocalStorageService } from './local-storage.service';
+import { ProjectService } from './project.service';
 import { CategoryService } from './category.service';
 import { ApiService } from './api.service';
 
@@ -11,6 +12,7 @@ export {
   UserService,
   AuthGuardService,
   LocalStorageService,
+  ProjectService,
   CategoryService,
   ApiService,
 };
@@ -25,6 +27,7 @@ export class ServicesModule {
         UserService,
         AuthGuardService,
         LocalStorageService,
+        ProjectService,
         CategoryService,
         ApiService,
       ]
