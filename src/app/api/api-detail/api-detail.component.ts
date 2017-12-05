@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Api } from '../../models';
 
 @Component({
   selector: 'app-api-detail',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./api-detail.component.scss']
 })
 export class ApiDetailComponent implements OnInit {
+
+  @Input() api: Api;
 
   constructor () {
   }

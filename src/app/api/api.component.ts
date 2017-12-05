@@ -14,6 +14,7 @@ export class ApiComponent implements OnInit {
   projects: Array<Project>;
   categories: Array<Category>;
   items: Array<Api>;
+  api: Api;
 
   constructor (private route: ActivatedRoute,
                private projectService: ProjectService,
@@ -56,6 +57,14 @@ export class ApiComponent implements OnInit {
         category_id: id
       })
       .subscribe(items => this.items = items);
+  }
+
+  showApi(id) {
+    this.apiService
+      .show({
+        id: id
+      })
+      .subscribe(api => this.api = api);
   }
 
 }

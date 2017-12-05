@@ -11,6 +11,7 @@ export class ApiListComponent implements OnInit {
   @Input() categories: Array<Category>;
   @Input() items: Array<Api>;
   @Output() categoryClicked = new EventEmitter<number>();
+  @Output() itemClicked = new EventEmitter<number>();
 
   constructor () {
   }
@@ -18,8 +19,12 @@ export class ApiListComponent implements OnInit {
   ngOnInit () {
   }
 
-  onClick (id: number) {
+  onCategoryClick (id: number) {
     this.categoryClicked.emit(id);
+  }
+
+  onItemClick (id: number) {
+    this.itemClicked.emit(id);
   }
 
 }

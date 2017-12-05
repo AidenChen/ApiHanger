@@ -18,4 +18,10 @@ export class ApiService {
       .map(response => response);
   }
 
+  show (request: { id: string }): Observable<Api> {
+    const uri = `${this.config.api}/${this.module}/${request.id}`;
+    return this.http.get<Api>(uri)
+      .map(response => response);
+  }
+
 }

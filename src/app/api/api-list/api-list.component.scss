@@ -48,3 +48,14 @@
   font-size: $fontSizeBigger;
   border-bottom: 1px solid $dividerColor;
 }
+
+.item__list {
+  height: 100%;
+}
+
+.item__unit {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: $fontSizeNormal;
+}

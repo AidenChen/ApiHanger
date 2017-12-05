@@ -2,16 +2,16 @@
   <div class="category">
     <div class="category__title">分类</div>
     <mat-list class="category__list">
-      <mat-list-item class="category__unit" *ngFor="let unit of categories" (click)="onClick(unit.id)">
-        <span matLine>{{unit.name}}</span>
+      <mat-list-item class="category__unit" *ngFor="let category of categories" (click)="onCategoryClick(category.id)">
+        <span matLine>{{category.name}}</span>
       </mat-list-item>
     </mat-list>
   </div>
   <div class="item">
     <div class="item__title">接口</div>
     <mat-list class="item__list">
-      <mat-list-item class="item__unit" *ngFor="let unit of items">
-        <span matLine>{{unit.name}}</span>
+      <mat-list-item class="item__unit" *ngFor="let item of items" (click)="onItemClick(item.id)">
+        <span matLine>{{item.name}}</span>
       </mat-list-item>
     </mat-list>
   </div>
