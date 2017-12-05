@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from '../../services';
-import { Api, Category } from '../../models';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Category, Api } from '../../models';
 
 @Component({
   selector: 'app-api-list',
@@ -10,22 +9,17 @@ import { Api, Category } from '../../models';
 export class ApiListComponent implements OnInit {
 
   @Input() categories: Array<Category>;
-  items: Array<Api>;
+  @Input() items: Array<Api>;
+  @Output() categoryClicked = new EventEmitter<number>();
 
-  constructor (private apiService: ApiService) {
+  constructor () {
   }
 
   ngOnInit () {
   }
 
-  indexApi (id) {
-    this.apiService
-      .index({
-        page_index: '1',
-        page_size: '5000',
-        category_id: id
-      })
-      .subscribe(items => this.items = items);
+  onClick (id: number) {
+    this.categoryClicked.emit(id);
   }
 
 }

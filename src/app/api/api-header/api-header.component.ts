@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Project } from '../../models';
 
 @Component({
   selector: 'app-api-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiHeaderComponent implements OnInit {
 
-  constructor() { }
+  @Input() current: string;
+  @Input() projects: Array<Project>;
 
-  ngOnInit() {
+  constructor () {
+  }
+
+  ngOnInit () {
   }
 
 }

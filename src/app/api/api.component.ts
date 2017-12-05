@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { CategoryService } from '../services';
-import { Category } from '../models';
+import { ProjectService, CategoryService, ApiService } from '../services';
+import { Project, Category, Api } from '../models';
 
 @Component({
   selector: 'app-api',
@@ -11,17 +11,31 @@ import { Category } from '../models';
 export class ApiComponent implements OnInit {
 
   id: string;
+  projects: Array<Project>;
   categories: Array<Category>;
+  items: Array<Api>;
 
   constructor (private route: ActivatedRoute,
-               private categoryService: CategoryService) {
+               private projectService: ProjectService,
+               private categoryService: CategoryService,
+               private apiService: ApiService) {
   }
 
   ngOnInit () {
     this.route.queryParams.forEach((params: Params) => {
       this.id = params['id'].toString();
+      this.indexProjects();
       this.indexCategories();
     });
+  }
+
+  indexProjects () {
+    this.projectService
+      .index({
+        page_index: '1',
+        page_size: '5000'
+      })
+      .subscribe(projects => this.projects = projects);
   }
 
   indexCategories () {
@@ -32,6 +46,16 @@ export class ApiComponent implements OnInit {
         project_id: this.id
       })
       .subscribe(categories => this.categories = categories);
+  }
+
+  indexApi (id) {
+    this.apiService
+      .index({
+        page_index: '1',
+        page_size: '5000',
+        category_id: id
+      })
+      .subscribe(items => this.items = items);
   }
 
 }
