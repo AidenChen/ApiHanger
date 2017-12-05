@@ -1,7 +1,7 @@
 <div class="api-header">
   <mat-form-field>
-    <mat-select [(value)]="current">
-      <mat-option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</mat-option>
+    <mat-select [(value)]="current" (change)="onChange($event)">
+      <mat-option *ngFor="let project of projects" [value]="project.id.toString()">{{project.name}}</mat-option>
     </mat-select>
   </mat-form-field>
   <a mat-button>列表</a>

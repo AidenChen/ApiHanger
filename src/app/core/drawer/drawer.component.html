@@ -1,21 +1,21 @@
 <div>
   <mat-nav-list>
-    <mat-list-item [routerLink]="['dashboard/overview']" [queryParams]="{'id': id}" (click)="handleClicked($event)">
+    <mat-list-item [routerLink]="['dashboard/overview']" [queryParams]="{'id': id}" (click)="onClick($event)">
       <span matLine>项目概览</span>
     </mat-list-item>
-    <mat-list-item [routerLink]="['dashboard/api']" [queryParams]="{'id': id}" (click)="handleClicked($event)">
+    <mat-list-item [routerLink]="['dashboard/api']" [queryParams]="{'id': id}" (click)="onClick($event)">
       <span matLine>接口管理</span>
     </mat-list-item>
-    <mat-list-item (click)="handleClicked($event)">
+    <mat-list-item (click)="onClick($event)">
       <span matLine>状态码管理</span>
     </mat-list-item>
-    <mat-list-item (click)="handleClicked($event)">
+    <mat-list-item (click)="onClick($event)">
       <span matLine>文档管理</span>
     </mat-list-item>
-    <mat-list-item (click)="handleClicked($event)">
+    <mat-list-item (click)="onClick($event)">
       <span matLine>协作管理</span>
     </mat-list-item>
-    <mat-list-item (click)="handleClicked($event)">
+    <mat-list-item (click)="onClick($event)">
       <span matLine>动态日志</span>
     </mat-list-item>
   </mat-nav-list>

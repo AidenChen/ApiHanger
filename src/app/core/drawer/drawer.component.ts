@@ -20,17 +20,9 @@ export class DrawerComponent implements OnInit {
     });
   }
 
-  handleClicked (e: Event) {
-    e.preventDefault();
+  onClick (event: Event) {
+    event.preventDefault();
     this.navClicked.emit();
-  }
-
-  overview () {
-    this.router.navigate(['dashboard/overview'], { queryParams: { id: this.id } });
-  }
-
-  api () {
-    this.router.navigate(['dashboard/api'], { queryParams: { id: this.id } });
   }
 
 }
