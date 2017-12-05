@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="onClick()" *ngIf="auth?.success">
+  <button mat-icon-button (click)="onClick()" *ngIf="auth?.success && id">
     <mat-icon>menu</mat-icon>
   </button>
   <span [routerLink]="['/home']">API Hanger</span>

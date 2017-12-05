@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-drawer',
@@ -8,16 +8,17 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class DrawerComponent implements OnInit {
 
-  id: number;
+  id: string;
   @Output() navClicked = new EventEmitter<void>();
 
-  constructor (private route: ActivatedRoute, private router: Router) {
+  constructor (private route: ActivatedRoute) {
   }
 
   ngOnInit () {
-    this.route.queryParams.forEach((params: Params) => {
-      this.id = params['id'];
-    });
+    this.route.queryParamMap
+      .subscribe(params => {
+        this.id = params.get('id');
+      });
   }
 
   onClick (event: Event) {

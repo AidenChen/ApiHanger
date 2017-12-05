@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProjectService, CategoryService, ApiService } from '../services';
 import { Project, Category, Api } from '../models';
 
@@ -23,11 +23,14 @@ export class ApiComponent implements OnInit {
   }
 
   ngOnInit () {
-    this.route.queryParams.forEach((params: Params) => {
-      this.id = params['id'].toString();
-      this.indexProjects();
-      this.indexCategories();
-    });
+    this.route.queryParamMap
+      .subscribe(params => {
+        this.id = params.get('id');
+        this.indexProjects();
+        this.indexCategories();
+        this.items = [];
+        this.api = null;
+      });
   }
 
   indexProjects () {
@@ -59,7 +62,7 @@ export class ApiComponent implements OnInit {
       .subscribe(items => this.items = items);
   }
 
-  showApi(id) {
+  showApi (id) {
     this.apiService
       .show({
         id: id
