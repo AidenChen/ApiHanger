@@ -2,11 +2,11 @@
   <mat-sidenav #drawer mode="over">
     <app-drawer (navClicked)="drawer.close()"></app-drawer>
   </mat-sidenav>
-  <div class="app">
+  <div class="app" style="display: flex; flex-flow: column;">
     <header>
       <app-header (toggle)="drawer.toggle()"></app-header>
     </header>
-    <main>
+    <main style="flex: 1;">
       <router-outlet></router-outlet>
     </main>
   </div>

@@ -1,5 +1,9 @@
 .api {
+  display: flex;
+  flex-flow: column;
+
   .api-inner {
+    flex: 1;
     display: flex;
   }
 

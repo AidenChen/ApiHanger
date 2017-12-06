@@ -1,6 +1,9 @@
 @import "../../../styles";
 
 .category-list {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
   border-right: 1px solid $dividerColor;
 }
 
@@ -15,6 +18,8 @@
 }
 
 .category-list__items {
+  height: 0;
+  flex: 1;
   overflow-y: auto;
 }
 
