@@ -10,8 +10,10 @@ import { Api, Parameter } from '../../models';
 export class ApiDetailComponent implements OnInit, AfterContentChecked {
 
   @Input() api: Api;
-  displayedColumns = ['key', 'type', 'not_null', 'default', 'description'];
-  dataSource = new MatTableDataSource<Parameter>();
+  requestParameterColumns = ['key', 'type', 'not_null', 'default', 'description'];
+  responseParameterColumns = ['key', 'type', 'description'];
+  requestParameter = new MatTableDataSource<Parameter>();
+  responseParameter = new MatTableDataSource<Parameter>();
 
   constructor () {
   }
@@ -21,7 +23,8 @@ export class ApiDetailComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked () {
     if (this.api) {
-      this.dataSource = new MatTableDataSource(this.api.request_parameter);
+      this.requestParameter = new MatTableDataSource(this.api.request_parameter);
+      this.responseParameter = new MatTableDataSource(this.api.response_parameter);
     }
   }
 

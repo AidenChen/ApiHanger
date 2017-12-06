@@ -34,7 +34,13 @@
           <span matLine>响应类型</span>
           <span matLine matSubheader>{{api.response_type}}</span>
         </mat-list-item>
-        <mat-table #table [dataSource]="dataSource">
+        <mat-list-item>
+          <span matLine>请求头</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>请求参数</span>
+        </mat-list-item>
+        <mat-table #table [dataSource]="requestParameter">
           <ng-container matColumnDef="key">
             <mat-header-cell *matHeaderCellDef>名称</mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.key}} </mat-cell>
@@ -60,9 +66,40 @@
             <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
           </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-header-row *matHeaderRowDef="requestParameterColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: requestParameterColumns;"></mat-row>
         </mat-table>
+        <mat-list-item>
+          <span matLine>请求示例</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>响应头</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>响应参数</span>
+        </mat-list-item>
+        <mat-table #table [dataSource]="responseParameter">
+          <ng-container matColumnDef="key">
+            <mat-header-cell *matHeaderCellDef>名称</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.key}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>类型</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>说明</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="responseParameterColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: responseParameterColumns;"></mat-row>
+        </mat-table>
+        <mat-list-item>
+          <span matLine>响应示例</span>
+        </mat-list-item>
         <mat-list-item>
           <span matLine>备注</span>
           <span matLine matSubheader>{{api.remark}}</span>
