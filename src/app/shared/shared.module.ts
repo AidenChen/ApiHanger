@@ -9,6 +9,7 @@ import {
   MatListModule,
   MatIconModule,
   MatButtonModule,
+  MatTableModule,
   MatFormFieldModule,
   MatSelectModule,
   MatCheckboxModule
@@ -27,6 +28,7 @@ import {
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
@@ -42,6 +44,7 @@ import {
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,

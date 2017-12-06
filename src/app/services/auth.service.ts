@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { map } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { LocalStorageService } from './local-storage.service';
 import { User, Auth, Response } from '../models';
@@ -45,8 +46,8 @@ export class AuthService {
 
   login (request: {username: string, password: string}): Observable<Auth> {
     const uri = `${this.config.api}/users`;
-    return this.http.get<Array<User>>(uri, {params: request})
-      .map(response => {
+    return this.http.get<Array<User>>(uri, {params: request}).pipe(
+      map(response => {
         const auth = Object.assign({}, this.auth);
         if (! response.length) {
           auth.user = null;
@@ -61,7 +62,8 @@ export class AuthService {
         this.localStorageService.update('auth', this.auth);
         this.subject.next(this.auth);
         return this.auth;
-      });
+      })
+    );
   }
 
 }

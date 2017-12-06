@@ -1,7 +1,73 @@
 <div class="api-detail">
   <mat-tab-group>
     <mat-tab label="详情">
-      <div>{{api?.name}}</div>
+      <mat-list *ngIf="api">
+        <mat-list-item>
+          <span matLine>名称</span>
+          <span matLine matSubheader>{{api.name}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>地址</span>
+          <span matLine matSubheader>{{api.url}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>描述</span>
+          <span matLine matSubheader>{{api.description}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>状态</span>
+          <span matLine matSubheader>{{api.status}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>协议</span>
+          <span matLine matSubheader>{{api.protocol}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>方法</span>
+          <span matLine matSubheader>{{api.method}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>请求类型</span>
+          <span matLine matSubheader>{{api.request_type}}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <span matLine>响应类型</span>
+          <span matLine matSubheader>{{api.response_type}}</span>
+        </mat-list-item>
+        <mat-table #table [dataSource]="dataSource">
+          <ng-container matColumnDef="key">
+            <mat-header-cell *matHeaderCellDef>名称</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.key}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>类型</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="not_null">
+            <mat-header-cell *matHeaderCellDef>是否必传</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.not_null}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="default">
+            <mat-header-cell *matHeaderCellDef>缺省值</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.default}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>说明</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-list-item>
+          <span matLine>备注</span>
+          <span matLine matSubheader>{{api.remark}}</span>
+        </mat-list-item>
+      </mat-list>
     </mat-tab>
     <mat-tab label="编辑">
       <div>{{api?.name}}</div>

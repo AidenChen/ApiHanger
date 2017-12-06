@@ -8,8 +8,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { DrawerComponent } from './drawer/drawer.component';
 
-import 'rxjs/add/operator/map';
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
