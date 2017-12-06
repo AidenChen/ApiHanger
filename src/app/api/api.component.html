@@ -1,8 +1,11 @@
-<section class="api">
+<section class="main api">
   <app-api-header [current]="id" [projects]="projects"></app-api-header>
   <div class="api-inner">
+    <div class="category-list-wrapper">
+      <app-category-list [categories]="categories" (categoryClicked)="indexApi($event)"></app-category-list>
+    </div>
     <div class="api-list-wrapper">
-      <app-api-list [categories]="categories" [items]="items" (categoryClicked)="indexApi($event)" (itemClicked)="showApi($event)"></app-api-list>
+      <app-api-list [apis]="apis" (apiClicked)="showApi($event)"></app-api-list>
     </div>
     <div class="api-detail-wrapper">
       <app-api-detail [api]="api"></app-api-detail>

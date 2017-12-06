@@ -10,7 +10,7 @@ import { Project } from '../models';
 })
 export class ProjectComponent implements OnInit {
 
-  projects: Array<Project>;
+  projects: Project[];
 
   constructor (private router: Router,
                private projectService: ProjectService) {

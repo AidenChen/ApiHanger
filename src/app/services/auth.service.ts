@@ -46,7 +46,7 @@ export class AuthService {
 
   login (request: {username: string, password: string}): Observable<Auth> {
     const uri = `${this.config.api}/users`;
-    return this.http.get<Array<User>>(uri, {params: request}).pipe(
+    return this.http.get<User[]>(uri, {params: request}).pipe(
       map(response => {
         const auth = Object.assign({}, this.auth);
         if (! response.length) {

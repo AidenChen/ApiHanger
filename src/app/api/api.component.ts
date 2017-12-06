@@ -11,9 +11,9 @@ import { Project, Category, Api } from '../models';
 export class ApiComponent implements OnInit {
 
   id: string;
-  projects: Array<Project>;
-  categories: Array<Category>;
-  items: Array<Api>;
+  projects: Project[];
+  categories: Category[];
+  apis: Api[];
   api: Api;
 
   constructor (private route: ActivatedRoute,
@@ -28,7 +28,7 @@ export class ApiComponent implements OnInit {
         this.id = params.get('id');
         this.indexProjects();
         this.indexCategories();
-        this.items = [];
+        this.apis = [];
         this.api = null;
       });
   }
@@ -59,7 +59,7 @@ export class ApiComponent implements OnInit {
         page_size: '5000',
         category_id: id
       })
-      .subscribe(items => this.items = items);
+      .subscribe(apis => this.apis = apis);
   }
 
   showApi (id) {

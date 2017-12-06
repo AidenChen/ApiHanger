@@ -1,0 +1,8 @@
+<div class="category-list">
+  <div class="category-list__title">分类</div>
+  <mat-list class="category-list__items">
+    <mat-list-item class="category-list__item" *ngFor="let category of categories" (click)="onCategoryClick(category.id)">
+      <span matLine>{{category.name}}</span>
+    </mat-list-item>
+  </mat-list>
+</div>

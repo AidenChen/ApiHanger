@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Category, Api } from '../../models';
+import { Api } from '../../models';
 
 @Component({
   selector: 'app-api-list',
@@ -8,10 +8,8 @@ import { Category, Api } from '../../models';
 })
 export class ApiListComponent implements OnInit {
 
-  @Input() categories: Array<Category>;
-  @Input() items: Array<Api>;
-  @Output() categoryClicked = new EventEmitter<number>();
-  @Output() itemClicked = new EventEmitter<number>();
+  @Input() apis: Api[];
+  @Output() apiClicked = new EventEmitter<number>();
 
   constructor () {
   }
@@ -19,12 +17,8 @@ export class ApiListComponent implements OnInit {
   ngOnInit () {
   }
 
-  onCategoryClick (id: number) {
-    this.categoryClicked.emit(id);
-  }
-
-  onItemClick (id: number) {
-    this.itemClicked.emit(id);
+  onApiClick (id: number) {
+    this.apiClicked.emit(id);
   }
 
 }

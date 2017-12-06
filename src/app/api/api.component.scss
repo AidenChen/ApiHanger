@@ -3,9 +3,14 @@
     display: flex;
   }
 
+  .category-list-wrapper {
+    flex: 0 0 240px;
+    width: 240px;
+  }
+
   .api-list-wrapper {
-    flex: 0 0 600px;
-    width: 600px;
+    flex: 0 0 360px;
+    width: 360px;
   }
 
   .api-detail-wrapper {

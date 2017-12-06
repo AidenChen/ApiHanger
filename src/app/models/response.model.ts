@@ -6,5 +6,5 @@ export interface Response<T> {
 
 export interface PageableResult<T> {
   total: number;
-  items: Array<T>;
+  items: T[];
 }

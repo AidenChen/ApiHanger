@@ -13,9 +13,9 @@ export class CategoryService {
                private http: HttpClient) {
   }
 
-  index (request: { page_index: string, page_size: string, project_id: string }): Observable<Array<Category>> {
+  index (request: { page_index: string, page_size: string, project_id: string }): Observable<Category[]> {
     const uri = `${this.config.api}/${this.module}`;
-    return this.http.get<Array<Category>>(uri, { params: request }).pipe(
+    return this.http.get<Category[]>(uri, { params: request }).pipe(
       map(response => response)
     );
   }

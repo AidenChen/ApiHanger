@@ -10,7 +10,7 @@ import { Project } from '../../models';
 export class ApiHeaderComponent implements OnInit {
 
   @Input() current: string;
-  @Input() projects: Array<Project>;
+  @Input() projects: Project[];
 
   constructor (private router: Router) {
   }
